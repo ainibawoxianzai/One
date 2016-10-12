@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/reading_container"
+    tools:context=".fragment.ReadFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/reading_top_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"/>
+    <LinearLayout
+        android:id="@+id/ponit_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_alignBottom="@+id/reading_top_view_pager"
+        android:layout_marginBottom="5dp"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/reading_bottom_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/reading_top_view_pager"
+        android:background="@drawable/board"
+        android:layout_margin="10dp"
+        />
+
+</RelativeLayout>

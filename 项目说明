@@ -1,0 +1,35 @@
+1.要注意程序的先后顺序，不然容易报空指针和下标越界的异常。
+2.Reading的ListViewFragment中ListAdapter，在Reading中的ViewPagerAdapter中set方法传参数过去
+，ListViewFragment的Adapter不能刷新，也不需要刷新数据为什么呢？
+3.今天讲的接口回调封装方法，三级缓存，字体文件的运用，还有机型适配的考虑
+3.写入相机的缓存中，控件嵌套，点击事件
+
+contextMenu注册，重写onCreateContextMenu,
+onContextItemSelected点击事件重写方法只在继承Activity时有效
+使用item.setOnMenuItemClickListener()点击事件
+contextMenu在Fragment重写onContextItemSelected没有效果，只有在Activity中才有效果。
+
+ DisplayMetrics metrics = new DisplayMetrics();
+ getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);//不能去掉了
+ int w = metrics.widthPixels;
+ int h = metrics.heightPixels;
+
+继承PagerAdapter重写
+getCount()
+isViewFromObject
+instantiateItem
+destroyItem
+
+
+Intent intent = new Intent(getActivity(), ReadingADDetailActivity.class);
+        intent.putExtra("id",id);
+        startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.reading_ad_detail_enter,R.anim.reading_ad_old_activity_out);
+动画里面xml位移参照点只有百分数有效
+
+ FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setCustomAnimations(R.anim.reading_ad_detail_enter,R.anim.reading_ad_detail_exit,R.anim.reading_ad_detail_enter,R.anim.reading_ad_detail_exit);
+        transaction.add(R.id.reading_container,new ReadingAdDetail());
+        transaction.addToBackStack(null);
+        transaction.commit();
+        xml文件要加背景不加默认是透明的
